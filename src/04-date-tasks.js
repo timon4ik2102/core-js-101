@@ -57,7 +57,7 @@ function isLeapYear(date) {
   if (date.getFullYear() % 4 !== 0) return false;
   if (date.getFullYear() % 100 !== 0) return true;
   if (date.getFullYear() % 400 !== 0) return false;
-  return true
+  return true;
 }
 
 

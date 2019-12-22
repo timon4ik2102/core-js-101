@@ -17,7 +17,7 @@
  *   'aa',''    => 'aa'
  *   '',  'bb'  => 'bb'
  */
-function concatenateStrings(value1,value2) {
+function concatenateStrings(value1, value2) {
   return value1 + value2;
 }
 
@@ -49,7 +49,7 @@ function getStringLength(value) {
  *   'John','Doe'      => 'Hello, John Doe!'
  *   'Chuck','Norris'  => 'Hello, Chuck Norris!'
  */
-function getStringFromTemplate(firstName,lastName) {
+function getStringFromTemplate(firstName, lastName) {
   return `Hello, ${firstName} ${lastName}!`;
 }
 
@@ -64,7 +64,7 @@ function getStringFromTemplate(firstName,lastName) {
  *   'Hello, Chuck Norris!' => 'Chuck Norris'
  */
 function extractNameFromTemplate(value) {
-  return value.slice(7,value.length - 1);
+  return value.slice(7, value.length - 1);
 }
 
 /**
@@ -78,7 +78,7 @@ function extractNameFromTemplate(value) {
  *   'cat'       => 'c'
  */
 function getFirstChar(value) {
-  return value.substr(0,1);
+  return value.substr(0, 1);
 }
 /**
  * Removes a leading and trailing whitespace characters from string.
@@ -106,7 +106,7 @@ function removeLeadingAndTrailingWhitespaces(value) {
  *   'A', 5  => 'AAAAA'
  *   'cat', 3 => 'catcatcat'
  */
-function repeatString(value,count) {
+function repeatString(value, count) {
   return value.repeat(count);
 }
 
@@ -122,8 +122,8 @@ function repeatString(value,count) {
  *   'I like legends', 'end' => 'I like legs',
  *   'ABABAB','BA' => 'ABAB'
  */
-function removeFirstOccurrences(str,value) {
-  return str.replace(value,'');
+function removeFirstOccurrences(str, value) {
+  return str.replace(value, '');
 }
 
 /**
@@ -138,7 +138,7 @@ function removeFirstOccurrences(str,value) {
  *   '<a>' => 'a'
  */
 function unbracketTag(str) {
-  return str.replace(/[^a-zA-Z]/g,'');
+  return str.replace(/[^a-zA-Z]/g, '');
 }
 
 /**
@@ -197,13 +197,13 @@ function extractEmails(str) {
  *             '└──────────┘\n'
  *
  */
-function getRectangleString(width,height) {
-  let size = width - 2;
-  let horizontalLine = '─'.repeat(size);
-  let hotezintalSpace = ' '.repeat(size);
-  let topLine = `┌${horizontalLine}┐\n`;
-  let middleLine = `│${hotezintalSpace}│\n`.repeat(height - 2);
-  let bottomLine = `└${horizontalLine}┘\n`;
+function getRectangleString(width, height) {
+  const size = width - 2;
+  const horizontalLine = '─'.repeat(size);
+  const hotezintalSpace = ' '.repeat(size);
+  const topLine = `┌${horizontalLine}┐\n`;
+  const middleLine = `│${hotezintalSpace}│\n`.repeat(height - 2);
+  const bottomLine = `└${horizontalLine}┘\n`;
   return topLine + middleLine + bottomLine;
 }
 
@@ -224,10 +224,10 @@ function getRectangleString(width,height) {
  *
  */
 function encodeToRot13(str) {
-  let input = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
-  let output = 'NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm';
-  return str.split('').map(char => {
-    let index = input.indexOf(char);
+  const input = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+  const output = 'NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm';
+  return str.split('').map((char) => {
+    const index = input.indexOf(char);
     return index === -1 ? char : output[index];
   }).join('');
 }
@@ -246,7 +246,7 @@ function encodeToRot13(str) {
  *   isString(new String('test')) => true
  */
 function isString(value) {
-  return value instanceof String || typeof value === 'string'
+  return value instanceof String || typeof value === 'string';
 }
 
 /**
@@ -274,12 +274,12 @@ function isString(value) {
  *   'K♠' => 51
  */
 function getCardId(value) {
-  let suits = '♣♦♥♠';
-  let numbers = 'A234567891JQK';
-  let suit = value[value.length - 1];
-  let number = value[0];
-  return suits.indexOf(suit)*13 + numbers.indexOf(number);
-  }
+  const suits = '♣♦♥♠';
+  const numbers = 'A234567891JQK';
+  const suit = value[value.length - 1];
+  const number = value[0];
+  return suits.indexOf(suit) * 13 + numbers.indexOf(number);
+}
 
 module.exports = {
   concatenateStrings,
@@ -296,5 +296,5 @@ module.exports = {
   getRectangleString,
   encodeToRot13,
   isString,
-  getCardId
+  getCardId,
 };
